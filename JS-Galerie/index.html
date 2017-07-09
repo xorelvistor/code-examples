@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+	<head>
+		<title>Návod - fotogalerie (WAP)</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+	<body>
+		<section>
+            <h1>Fotogalerie</h1>
+			<pre>
+Autor: Radim Jílek, <a href="mailto:xjilek14@stud.fit.vutbr.cz">xjilek14</a>
+Projekt: Fotogalerie (JS)
+Vzniklo jako projekt do předmětu WAP na FIT VUT, MGM, 2014/2015
+			</pre>
+			Dostupné online na <a href="./demo.html" target="blank">/~xjilek14/projekty/WAP/demo.html</a>
+			<hr>
+		</section>
+        <section style="width: 60%;">
+        <h2>Zadání</h2>
+        <p>Mějme HTML dokument obsahující řadu fotografií. Každá fotografie je v dokumentu reprezentována prvkem div class="photo", který obsahuje vnořené elementy s vhodně zvolenými názvy tříd, které reprezentují titulek a textový popis fotografie. Dále je přítomen element img reprezentující příslušnou fotografii. Implementujte skript, jehož připojením k danému dokumentu vznikne možnost prohlížet si vložené fotografie jednu po druhé. Při zobrazení dokumentu v prohlížeči se potom tedy zobrazí vždy jedna fotografie s příslušnými údaji, seznam všech fotografií a tlačítka pro zobrazení předchozí a další fotografie. Implementujte funkci "slideshow" kdy se fotografie zobrazují postupně automaticky v zadaném časovém intervalu. Je-li fotografie větší, než je velikost snímku, musí se automaticky zmenšit na velikost snímku. Menší fotografie se zobrazí uprostřed snímku. Během prohlížení může uživatel každé fotografii přiřadit hodnocení 1 - 5, které se graficky zobrazí v seznamu fotografií. Otestujte a demonstrujte funkčnost na fotografiích různé velikosti s různým poměrem stran.</p>
+        </section>
+        <hr>
+		<section style="text-align: left;">
+			<p>
+				Po připojení skriptu <code>galerie.js</code> k dokumentu se automaticky vytvoří grafické rozhraní fotogalerie a na každou fotku s požadovanou třídou je na událost <strong>onclick</strong> navázána funkce <code>showFoto()</code>, která umožňuje zobrazení fotografie v galerii.
+			</p>
+			
+			Skript předpokládá následující strukturu u každé fotografie:
+			<!-- Zobrazeni cisteho HTML -->	
+			<xmp>	
+<div class="photo">
+	<img src="zdroj">
+	<div class="nazev">Nazev</div>
+	<div class="popis">Popisek</div>
+</div>
+			</xmp>
+			<h2>Nastavení</h2>
+			<p>
+				V úvodní části skriptu je možné definovat několik parametrů galerie:
+			</p>
+			<ul>
+				<li>název třídy bloku fotografie → <code>trida_fotky</code></li>
+				<li>název třídy titulku fotografie → <code>trida_titulku</code></li>
+				<li>název třídy popisku fotografie → <code>trida_popisku</code></li>
+				<li>šířku navigačních šipek (předchozí/další) → <code>sirka_gui</code></li>
+				<li>možnost dolovat informace o obrázku přímo z jeho atributů → <code>b_infoFromImage</code> (true/false)
+					<ul>
+						<li>obsahuje-li obrázek/fotografie atribut <code>title</code>, je použit jako titulek fotografie namísto obsahu speciálního elementu s třídou titulku</li>
+						<li>obsahuje-li obrázek/fotografie atribut <code>alt</code>, je použit jako popisek fotografie namísto obsahu speciálního elementu s třídou popisku</li>
+					</ul>
+				</li>
+			</ul>	
+		</section>
+		<section>
+			<h2>Zajímavosti</h2>
+			<ul>
+				<li>velikost galerie se přizpůsobí velikosti okna</li>
+				<li>CSS styl galerie je definován v externím souboru <code>galerie.css</code></li>
+				<li>hodnocení fotografie se v náhledu zobrazí, až je fotografie ohodnocena nejméně 1 hvězdou</li>
+				<li>velikost náhledů se přizpůsobuje počtu fotografií a velikosti okna</li>
+				<li>pro vytvoření GUI galerie není použit žádný externí obrázek</li>
+			</ul>
+			<h2>Ovládání klávesami</h2>
+			<ul>
+				<li>galerii lze uzavřít klávesou <code>ESC</code></li>
+				<li>listovat fotkami lze za pomocí šipek</li>
+				<li>klávesou <code>END</code> se lze přesunout na poslední fotku</li>
+				<li>klávesou <code>HOME</code> se lze přesunout na první fotku</li>
+				<li>klávesou <code>SPACE</code> je možné spustit/zastavit slideshow fotografií</li>
+			</ul>
+		</section>
+	</body>
+</html>

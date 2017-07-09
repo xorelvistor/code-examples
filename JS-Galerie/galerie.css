@@ -1,0 +1,255 @@
+body {
+	overflow-x: hidden; 
+}
+
+#myGalleryBackground {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	background: rgba(10, 10, 10, 0.95);
+	z-index: 1000;
+	display: none;
+}
+
+.vertical-center {
+	position: relative;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+
+#myGallery { /* samotne okno galerie */
+	max-height: 90%;
+	margin: 0 auto;
+	margin: 1em auto;
+}
+
+
+#centerBlock {
+	margin: auto;
+	z-index: 1001;
+	float: left;
+	position: relative;
+	background: transparent;
+	max-width: 100%;
+}
+
+/** ----------- **
+ ** Image Block **
+ ** ----------- **/
+#imageBlock { /* prostor pro fotku */
+	width: inherit;
+	height: 60%;
+	margin: 0 auto;
+	overflow: visible;
+}
+
+#imageBlock img{ /* samotna fotka */
+	margin: auto;
+	display: block;
+	max-height:100%;
+	max-width: 100%;
+	box-shadow: black 1px 1px 1px 1px;
+}
+
+#imageTitle, #imageDescription {
+	text-align: center;
+	vertical-align: middle;
+	padding: 1em 0em;
+	/* height: 1em; */
+}
+
+#imageTitle { /* titulek obrazku */
+	background: rgba(208, 219, 219, 0.45);
+	color: white;
+	text-align: center;
+	margin-bottom: 0.5em;
+	font-size: 120%;
+	position: relative;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#imageDescription { /* popisek obrazku */
+	background: lightgray;
+	margin-top: 0.5em;
+	left: 0;
+	width: 100%;
+	bottom: 110px;	
+}
+	/** Image Query Block **/
+#imageQuery { /* prostor s nahledy */
+	background: transparent;
+	max-width: 100%;
+	margin: 0.1em;	
+	position: relative;
+}
+
+#imageQuery .colection { /* blok nahledu */
+	margin: 0.1em;
+	background-color: whitesmoke;
+	z-index: -1;
+	position: relative;
+	text-align: center;
+}
+
+#imageQuery .colection:hover {
+	cursor: pointer;
+	opacity: 0.8;
+}
+
+.active { /* nahled prave vybraneho obrazku */
+	opacity: 1.0;
+}
+
+.noactive { /* ostatni nahledy */
+	opacity: 0.1;
+}
+
+.colection img{ /* samotna fotka nahledu */
+	 display: block;
+	 margin: 0 auto;
+	max-height: 100%;
+	max-width: 100%;
+}
+
+.noactive .rank{ /* hodnoceni u nahledu */
+	background: rgba(61, 77, 43, 0.75);
+	display: block;
+	z-index: 1078;
+	margin-left: 11%;
+	margin-top: 14%;
+	position: absolute;
+	border-radius: .5em;
+	text-align: center;
+	color: yellow;
+	vertical-align: middle;
+	box-shadow: 1px 1px 1px 2px black;
+	padding: .1em;
+}
+
+.rank div {
+	text-align: center;
+	vertical-align: middle;
+	position: relative;
+	padding-top: 20%;
+}
+
+.active .rank {
+	display: none;
+}
+
+#imageQuery .noactive .zero-rank { /* Fotka bez hodnoceni */
+	 display: none;
+}
+
+/** ------ **
+ ** Arrows **
+ ** -------**/
+#leftBlock , #rightBlock {
+	position: absolute;
+	margin-left: 0.5em;
+	margin-right: 0.5em;
+	border-top-width: 150px;
+	border-bottom-width: 150px;
+	border-style: solid;
+	border-color: transparent transparent transparent transparent; 
+	border-left-width: 0px;
+	border-right-width: 50px;
+	cursor: pointer;
+}
+#leftBlock { left: 0;} 
+#rightBlock { right: 0;}
+
+/* Barvy sipek pri najeti */
+#rightBlock:hover {border-color: transparent transparent transparent brown; } 
+#leftBlock:hover {border-color: transparent brown transparent transparent; }
+
+/** -------------- **
+ ** Controls Block **
+ ** -------------- **/
+#controlsBlock {
+	display: block;	
+	background: lightblue;
+	vertical-align: middle;
+	height: auto;
+}
+
+#controlsBlock div {
+	vertical-align: middle;
+	position: relative;
+	display: inline-block;
+}	
+
+#poradi { /* poradi a pocet snimku */
+	text-align: center;
+	padding: 0em 1em;
+	font-weight: bold;
+}
+
+#controlsBlock input { /* nastaveni intervalu slideshow */
+	margin-top: 0.3em;
+	width: 3em;
+}
+
+	/** Tlacitko pro zavreni **/
+#controlsBlock .obal {
+	position: absolute;
+	right: 5px;
+	text-align: center;
+	font-size: 120%;
+	cursor: pointer;
+}
+
+.obal .close:hover {
+	color: brown;
+}
+.obal .close:after {
+	content: "\2716"; /* UTF-8 symbol */ 
+	cursor: pointer;
+}
+
+	/** Slideshow **/
+#slideshow .stav {
+	height: 0px;
+	border-top-width: 10px;
+	border-bottom-width: 10px;
+	border-left-width: 20px;
+	border-right-width: 0px;
+	border-style: solid;
+	cursor: pointer;
+}
+#slideshow .stop {border-color: transparent transparent transparent brown;} /* ikona- play */
+#slideshow .play {border-color: brown;} /* ikona - stop */
+
+	/** Zobrazeni hodnoceni **/
+#hodnoceni {
+	font-size: 150%;
+	height: auto;
+	position: relative;
+	margin-top: -0.3em;
+}
+
+#hodnoceni .star  {
+	height: auto;
+}
+
+.star .empty, .star .noempty {
+	color: brown;
+	float: left;
+	cursor: pointer;
+}
+
+.star .empty:after { /* prazdna hvezda */
+	content: "\2606";
+}
+
+.star .noempty:after,.star .empty:hover:after { /* plna hvezda */
+	content: "\2605";
+}
+
+@media (max-width: 480px),(max-width: 700px) {
+	
+}

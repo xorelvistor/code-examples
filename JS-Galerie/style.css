@@ -1,0 +1,14 @@
+.nazev, .popis {
+	display: none;
+}
+
+.photo {
+	display: inline-table;
+}
+.photo img{
+	height: 120px;
+}
+
+.fotky {
+
+}
