@@ -12,4 +12,4 @@ Ukázky mého kódu několika programovacích jazyků
 [BP - Projected Board Game](https://github.com/xorelvistor/ProjectedBoardGame) - Promítané uživatelské rozhraní
 
 ## Javascript/HTML/CSS
-`JS-Gallery/` - Fotogalerie
+`JS-Galerie/` - Fotogalerie
