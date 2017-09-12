@@ -13,6 +13,10 @@ Ukázky mého kódu několika programovacích jazyků
 
 ## Javascript/HTML/CSS
 `JS-Galerie/` - Webová fotogalerie implementovaná v čistém JS (slideshow, náhledy, navigace klávesami...); _školní projekt_
+`ITW/projekt` - Tvorba webové stránky podle grafické předlohy; _školní projekt_
+
+## PHP/SQL
+`IIS` - Tvorba informačního systému pro správu zakázek a zaměstnanců pro malou firmu; _školní projekt_
 
 ## Java
 [hra Dáma](https://www.dropbox.com/sh/q49d8fmj69l2g6j/AADXj9lkCTB-kEEe3x_QrmDCa?dl=0) - implementace hry dáma s grafickým rozhraním; _školní projekt_
