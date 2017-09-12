@@ -1,0 +1,432 @@
+/*** Layout ***/
+a {
+	text-decoration: none;
+}
+#page {
+	padding: .5em 5em 5em 5em;
+	margin: auto;
+	/**background: whitesmoke;**/
+	margin-top: 1em;
+	border-radius: 50px;
+}
+
+body {
+	font: 14px/1.5 sans-serif;
+	margin: 0 auto;
+	padding: 0;
+	background: #FFF;
+	color: #222;
+}
+
+#logo {
+	max-width: 160px;
+	max-height: 160px;
+	background: red;
+	position: relative;
+}
+#header {
+	height: 8em;
+	right: 0;
+	background: silver;
+}
+
+#user {
+	float: right;
+	padding: 1em;
+	border-radius: 16px;
+	background-color: darkorange;
+	box-shadow: inset 2px 1px 10px black;
+	position: absolute;
+	z-index: 100;
+	right: 0;
+	margin: 1em;
+}
+
+#header .time {
+	background-color: rgba(255,255,255,0.3);
+	border-top-right-radius: 80%;
+	border-bottom-right-radius: 12%;
+	border-top-left-radius: 8%;
+	width: 70%;
+	position: relative;
+	padding: 0.5em;
+	float: left;
+	margin-top: -1em;
+	box-shadow: 2px 1px 10px black;
+}
+
+.time .date {
+	font-size: 120%;
+}
+
+.time .clock {
+	
+}
+
+#title {
+	font-size: 150%;
+	text-align: left;
+	top: 2em;
+	margin-left: 48%;
+	position: relative;
+	z-index: 1;	
+}
+
+#header a {
+	color: #FFF499;
+}
+
+#content {
+	overflow: hidden;
+}
+
+#footer {
+	width: 240px;
+	position: relative;
+	left: 262px;
+}
+
+
+
+.required {
+	color: red;
+	font-weight: bold;
+}
+
+.button {
+	color: black;
+	background-color: orange;
+	box-shadow: 0px 2px 1px 1px black;
+	padding: .6em;
+	font-weight: bold;
+	border-radius: 1em;
+	border-color: white;
+	cursor: pointer;
+	margin-top: 1em; 
+}
+
+.button:hover {
+	background-color: #C6D880;
+	box-shadow: 0px 2px 20px 1px black;
+
+}
+/** Menu **/
+div.menu {
+	float: left;
+	padding-right: 3em;
+	width: 220px;
+}
+
+div.item {
+    text-align: left;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 2px; 
+	opacity: 0.3;
+}
+
+.current .item {
+	background-color: #C6D880;
+	opacity: 1;
+	padding: 1em;
+	margin: .5em 0em;
+	box-shadow: 5px 5px .1px .5px gray;
+}
+
+.menu a,a:active {
+	color: black;
+}
+
+.menu a .item:hover {
+	background-color: #C6D880;
+	opacity: 1;
+}
+
+/*** Typo ***/
+
+table {
+	width: 100%;
+	border-collapse: separate;
+	border-spacing: 0;  
+}
+
+th td{
+	padding: 5px 6px 4px;       
+}
+
+.popis {
+	text-align: left; 
+	width: 300px;
+	background: lightgreen;         
+	border-radius: 2px;
+}
+
+/*** Forms ***/
+.form {
+	padding: 2em 0em;
+}
+.form fieldset{
+	border: 2px solid gray;
+	border-radius: 15px;
+	background-color: whitesmoke;
+	padding: 15px;
+}
+.form legend {
+	background-color: lightgray;
+	font-size: 150%;
+	color: rgba(0,0,0,0.5);
+	border-radius: 10px;
+	padding: 5px;
+	border: 2px solid silver;
+}
+
+legend {
+	font-weight: bold;
+	margin-left: 0;
+	padding: 0;
+}
+
+#sign .form {
+	width: 40%;
+	margin: auto;
+}
+
+.suma_ok {
+	color: blue;
+}
+.suma_bad {
+	color: red;
+	cursor: help;
+}
+
+/*** Flash messages ***/
+div .flash {
+	left: 240px;
+	padding: .8em;
+	margin: 1em;
+	border: 2px solid #ddd;
+	text-align: center;
+}
+
+#snippet--flashMessages .success {
+	background: #E6EFC2;
+	color: #264409;
+	border-color: #C6D880;
+}
+
+#snippet--flashMessages .info {
+	background: #FFF6BF;
+	color: #514721;
+	border-color: #FFD324;
+}
+
+#snippet--flashMessages .error {
+	background: #FBE3E4;
+	color: #8a1f11;
+	border-color: #FBC2C4;
+}
+
+
+/*** Icons ***/
+.icon {
+	width: 20px;
+	height: 20px;
+	background-position: 0 50%;
+	background-repeat: no-repeat;
+	opacity: 0.3;
+}
+.icon:hover {
+	opacity: 1;
+}
+/*** Prehled oddeleni ***/
+.oddeleni_buble {
+	max-width: 22em;
+	width: 30%;
+	padding: 5%;
+	margin: 2%;
+	border-radius: 50%;
+	display: inline-block;
+	box-shadow: 2px 4px 15px 0.5px black;
+
+}
+
+.oddeleni_buble:hover {
+	background-color: #C6D880;
+}
+
+.meta {
+	float: right;
+}
+
+.oddeleni_buble .info {
+	text-align: center;
+	color: black;
+}
+
+.nazev {
+	font-size: 130%;
+	font-style: italic;
+}
+
+/** Prehled zakazek **/
+#taby {
+	margin-top: 2em;
+	margin-left: 2em;
+}
+#taby li {
+	width: 100px; 
+	text-align: center;
+	display: inline-block;
+	padding: 0.8em;
+	margin: 0 .1em;
+	margin-bottom: -.3em;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+	border: 3px ridge silver;
+	background-color: lightgray;
+}
+
+#taby .active {
+	background: white;
+	position: relative;
+	border-bottom: 5px solid white;
+	z-index: 1;
+}
+#taby a {
+	color: black;
+	font-weight: bold;
+}
+
+
+[name=obsah] {
+	border: 3px ridge silver;
+	margin: 0 .1em;
+	background: white;
+	position: relative;
+}
+
+[name=obsah] .date,.zaznam .date {
+	text-align: center;
+}
+
+[name=obsah] table {
+	padding: 5px;
+	line-height: 2em;
+}
+
+[name=obsah] thead tr{
+	background: darkgray;
+	line-height: 2em;
+	color: whitesmoke;
+}
+
+.zahlavi {
+	margin: 2em 0em;
+}
+.zahlavi thead tr{
+	background: darkgray;
+	line-height: 2em;
+	color: whitesmoke;
+}
+
+.zaznam:hover {
+	background-color: #C6D880;
+}
+
+.sudy {
+	background-color: #CEE0FC;
+}
+
+.zaznam a {
+	color: gray;
+	font-weight: bold;
+}
+
+.zaznam a:hover {
+	text-decoration: underline;
+}
+
+/** Detail **/
+.detail {
+	position: relative;
+	border: 1px solid darkgray;
+	border-top: none;
+	border-radius: 15px;	
+	box-shadow: inset 0px 0px 100px 0px gray;
+}
+
+.detail .hlavicka {
+	background-color: darkgray;
+	padding: 1em;
+	position: relative;
+	border-top-right-radius: 15px;
+	border-top-left-radius: 15px;
+}
+.hlavicka .id {
+	float: right;
+	color: whitesmoke;
+	font-weight: bold;
+}
+
+.hlavicka .udaj {
+	font-size: 120%;
+	font-weight: bold;
+}
+
+.hlavicka .udaj a {
+	font-style: italic;
+	color: black;
+}
+
+.hlavicka .udaj a:hover {
+	color: gray;
+	text-decoration: underline;
+}
+
+.detail a {
+	color: gray;
+}
+
+.detail .info {
+	border-top: none;
+	padding: 1em;
+}
+
+.info .udaj {
+	padding: 1em;
+}
+
+.udaj a:hover {
+	text-decoration: underline;
+}
+.info .hodnota {
+	background-color: #C6D880;
+	padding: .5em;
+}
+
+.info .foto {
+	position: relative;
+	float: right;
+	margin: .5em 3em;
+	/*width: 120px;*/
+	/*height: 120px;*/
+	border-radius: 5px;
+	/*border: 1px solid black;*/
+}
+
+.foto fieldset {
+	margin-right: -10em
+}
+
+.tabulka {
+	margin: 0em 3em
+}
+.tabulka caption {
+	background: rgba(50,50,50,0.1);
+	text-align: left;
+	padding: .5em;
+	font-style: italic;
+	
+}
+
+
