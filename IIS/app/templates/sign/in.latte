@@ -1,0 +1,35 @@
+{var $robots = noindex}
+
+{block title}Přihlášení{/block}
+{block content}
+
+<div id="sign"> 
+{form signInForm class => 'form'}
+	<fieldset>
+		<legend>Přihlášení do systému</legend>
+		<table>
+			<tr>
+				<td>{label login/}</td>
+				<td>{input login}</td>
+			</tr>
+			<tr>
+				<td>{label heslo/}</td>
+				<td>{input heslo}</td>
+			</tr>
+			<tr>
+				<td>&nbsp</td>
+				<td colspan="2">{input remember}{label remember/}</td>
+			</tr>
+			<tr>
+				<td colspan="2">{input send class =>'button'}</td>
+				<td>&nbsp</td>
+			</tr>
+		</table>
+	</fieldset>
+{/form}
+</div>
+{/block}
+{block footer}
+{/block}
+{block style}	
+{/block}

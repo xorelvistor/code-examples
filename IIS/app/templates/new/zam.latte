@@ -1,0 +1,47 @@
+{block title}Nový zaměstnanec{/block}
+
+{block content}
+
+	{form zamestnanecForm class => 'form'}
+	<fieldset>
+		<legend>Informace o novém zaměstnanci</legend>
+		<table>   
+			<tr>
+				<td>{label jmeno/}</td>
+				<td>{input jmeno}</td>
+				<td>{label prijmeni/}</td>
+				<td>{input prijmeni}</td>
+		  	</tr>
+		  	<tr>
+				<td>{label rc/}</td>
+				<td>{input rc}</td>
+			</tr>
+		  	<tr>
+				<td>{label tituly/}</td>
+				<td>{input tituly}</td>
+				<td>{label tel/}</td>
+				<td>{input tel}</td>
+		  	</tr>
+		  	<tr>
+				<td>{label uvazek/}</td>
+				<td>{input uvazek}</td>
+		  	</tr>
+		  	<tr>
+				<td>{label odd/}</td>
+				<td>{input odd}</td>
+		  	</tr>
+			<tr class="required">
+				<td colspan="2">pole označená (*) jsou povinná</td>
+			</tr>
+		</table>
+
+	{input create class=> 'button'}
+	{/form}
+	</fieldset> 
+{/block}
+
+{block footer}
+{/block}
+
+{block style}	
+{/block}

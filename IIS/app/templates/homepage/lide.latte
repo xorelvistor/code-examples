@@ -1,0 +1,43 @@
+{block title}Přehled zaměstnanců{/block}
+{block content}
+<table  border="0" cellpadding="5" cellspacing="10" class="zahlavi" name="obsah">
+		<thead>
+			<tr>
+				<th>Jméno</th>
+				<th>Příjmení</th>
+				<th>Zařazení</th>
+				<th>Volby</th>
+			</tr>
+		</thead>
+	{foreach $lide as $z}
+	    <tr  class="zaznam {if $iterator->isEven()}sudy{/if}">
+				<td>{$z->jmeno}</td>
+				<td>{$z->prijmeni}</td>
+				<td><a n:href="infoOdd,$z->oddeleni_id" title="Více informací o oddělení">{$z->oddeleni->nazev|firstUpper}</a></td>
+				<td>
+					<a n:href="infoZam,$z->osobniCislo" title="Více informací o zaměstnanci">
+						<img class="icon" src="{$basePath}/image/info.png">
+					</a>
+				
+				{if $user->isLoggedIn()}
+					{if $user->identity->role == "administrator"}
+							<a n:href="edit:adminEditZam,$z->osobniCislo" title="Editovat zaměstnance">
+								<img class="icon" src="{$basePath}/image/edit.png">
+							</a>
+						
+							<a n:href="delete!,$z->osobniCislo" title="Smazat zaměstnance">
+								<img class="icon" src="{$basePath}/image/delete.gif">
+							</a>
+				</td>
+					{/if}
+				{/if}
+		</tr>
+		
+	{/foreach}
+	</table>
+{/block}
+{block footer}
+{/block}
+
+{block style}	
+{/block}

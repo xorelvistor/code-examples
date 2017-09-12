@@ -1,0 +1,39 @@
+{block title}Editace oddělení{/block}
+
+
+
+{block content}
+
+	{form adminEditOddForm class => 'form'}
+	<fieldset>
+		<legend>Informace o oddělení</legend>
+		<table align="left" border="0" colspec="L C R">   
+			<tr>
+				<td>{label nazev/}</td>
+				<td>{input nazev} (maximálně 80 znaků)</td>
+		  	</tr>
+			<tr>
+				<td>{label kodOddeleni/}</td>
+				<td>{input kodOddeleni} (3 znaky)</td>
+			</tr>
+		  	<tr>
+				<td colspan="3">{label popis/} (maximálně 80 znaků)</td>
+		  	</tr>
+		  	<tr>
+		  		<td colspan="4">{input popis}</td>
+		  	</tr>
+		</table>
+
+	{input edit class=> 'button'}
+	{/form}
+	</fieldset> 
+
+	
+	
+{/block}
+
+{block footer}
+{/block}
+
+{block style}	
+{/block}

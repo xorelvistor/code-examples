@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="Nette Framework web application skeleton">
+	<meta name="robots" content="{$robots}" n:ifset="$robots">
+
+	<title>{include #title|striptags|trim}</title>
+
+	<link rel="stylesheet" href="{$basePath}/css/screen.css">
+	<link rel="shortcut icon" href="{$basePath}/icon.ico">
+<!--    <link rel="stylesheet" media="screen,projection,tv"
+    href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/smoothness/jquery-ui.css">-->
+	<script src="http://code.jquery.com/jquery-1.8.1.min.js"></script>
+	<script src="{$basePath}/js/netteForms.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+	<script type="text/javascript" src="{$basePath}/js/ajax.js"></script>
+<!--	<script type="text/javascript" src="{$basePath}/js/datePicker.js"></script>-->
+	<script type="text/javascript" src="{$basePath}/js/time.js"></script>
+	{block head}{/block}
+	{include #style}
+</head>
+
+<body onLoad="goforit()">
+
+    <div id="header">
+		{if $user->isLoggedIn()}
+    	<div id="user">
+			Přihlášen:
+			{if $user->identity->role == "zamestnanec"}
+				<a n:href="homepage:infoZam,$user->identity->login">{$uzivatel}</a>
+			{elseif $user->identity->role == "zakaznik"}
+				<a n:href="homepage:infoZad,$user->identity->login">{$uzivatel}</a>
+			{else}
+				{$uzivatel}
+			{/if}
+			
+			 ({$user->identity->role})<br>
+			<span class="options">
+				{if $user->identity->role == "zamestnanec"}
+					<a n:href="edit:editZam">
+				{elseif $user->identity->role == "zakaznik"}
+					<a n:href="edit:editZad">
+				{else}
+					<a n:href="edit:editAdmin">
+				{/if}
+				Editovat účet</a> | <a n:href="homepage:out">Odhlásit</a>
+			</span>
+    	</div>
+    	{/if}
+		<div id="title">{include #title|striptags|trim}</div>
+		<div id="logo"></div>
+		<div class="time">
+			<div id="date" class="date"></div>
+			<div id="clock" class="clock"></div>
+    	</div>
+	</div>  
+	<div id="page">
+	
+	<div class="menu">
+		{if $user->isLoggedIn()}	
+			<a n:href="homepage:oddeleni" {ifCurrent homepage:oddeleni}class="current"{/ifCurrent}>
+				<div class="item">Přehled oddělení</div></a>
+			<a n:href="homepage:lide" {ifCurrent homepage:lide}class="current"{/ifCurrent}>
+				<div class="item">Přehled zaměstnanců</div></a>
+			<a n:href="homepage:zakazky" {ifCurrent homepage:zakazky}class="current"{/ifCurrent}>
+				<div class="item">Přehled zakázek</div></a>
+			
+			{if $user->identity->role == "administrator"}
+				<a n:href="homepage:zadavatele" {ifCurrent homepage:zadavatele}class="current"{/ifCurrent}>
+					<div class="item">Přehled zadavatelů</div></a>
+				<a n:href="new:zam" {ifCurrent new:zam}class="current"{/ifCurrent}>
+					<div class="item">Přidat nového zaměstnance</div></a>
+				<a n:href="new:odd" {ifCurrent new:odd}class="current"{/ifCurrent}>
+					<div class="item">Založit nové oddělení</div></a>
+				<a n:href="new:zad" {ifCurrent new:zad}class="current"{/ifCurrent}>
+					<div class="item">Přidat zadavatele</div></a>
+			{/if}
+			{if $user->identity->role != "zamestnanec"}
+				<a n:href="new:zak" {ifCurrent new:zak}class="current"{/ifCurrent}>
+					<div class="item">Vytvořit zakázku</div></a>
+			{/if}
+		{/if}
+	</div>
+	
+	
+	<div id="content">
+		
+		<div id="flashMessage">
+			{snippet flashMessages}
+				<div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
+			{/snippet}
+		</div>
+		{include #content}
+	</div>
+
+	
+	{include #footer}
+</div>
+</div>
+</body>
+</html>

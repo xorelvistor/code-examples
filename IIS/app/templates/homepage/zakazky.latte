@@ -1,0 +1,95 @@
+{block title}Přehled zakázek{/block}
+{block content}
+<div id="taby">
+	<a href="javascript:void(0);" name="0" onClick="view(this.name);"><li class="active">Rozpracované</li></a>
+	<a href="javascript:void(0);" name="1" onClick="view(this.name);"><li>Zadané</li></a>
+	<a href="javascript:void(0);" name="2" onClick="view(this.name);"><li>Hotové</li></a>
+	<a href="javascript:void(0);" name="3" onClick="view(this.name);"><li>Zrušené</li></a>
+</div>
+	<div name="obsah" style="display: block">
+		<table>
+			<tbody>
+			{foreach $progres as $prace}
+				<tr class="zaznam {if $iterator->isEven()}sudy{/if}">
+					<td class="id"><a n:href="homepage:infoZak,$prace->cisloZakazky">{$prace->cisloZakazky}</a></td>
+					<td class="date"> {$prace->prijato|date:'j. n. Y'}</td>
+					<td class="date">{$prace->termin|date:'j. n. Y'}</td>
+					<td><a n:href="Homepage:infoZad,$prace->zadavatel_id">{$prace->zadavatel->nazev}</a></td>
+				</tr>
+			{/foreach}
+			</tbody>
+			<thead>
+				<th>Zakázka</th>
+				<th>Přijato</th>
+				<th>Termín</th>
+				<th>Zadal</th>
+			</thead>
+		</table>
+	</div>
+	<div name="obsah" style="display: none">
+		<table>
+			<tbody>
+			{foreach $none as $prace}
+
+				<tr class="zaznam {if $iterator->isEven()}sudy{/if}">
+					<td class="id"><a n:href="homepage:infoZak,$prace->cisloZakazky">{$prace->cisloZakazky}</a></td>
+					<td class="date"> {$prace->prijato|date:'j. n. Y'}</td>
+					<td class="date">{$prace->termin|date:'j. n. Y'}</td>
+					<td><a n:href="Homepage:infoZad,$prace->zadavatel_id">{$prace->zadavatel->nazev}</a></td>
+				</tr>
+			{/foreach}
+			</tbody>
+			<thead>
+				<th>Zakázka</th>
+				<th>Přijato</th>
+				<th>Termín</th>
+				<th>Zadal</th>
+			</thead>
+		</table>
+	</div>
+	<div name="obsah" style="display: none">
+		<table>
+			<tbody>
+			{foreach $done as $prace}
+				<tr class="zaznam {if $iterator->isEven()}sudy{/if}">
+					<td class="id"><a n:href="Homepage:infoZak,$prace->cisloZakazky">{$prace->cisloZakazky}</a></td>
+					<td class="date"> {$prace->prijato|date:'j. n. Y'}</td>
+					<td class="date">{$prace->termin|date:'j. n. Y'}</td>
+					<td><a n:href="Homepage:infoZad,$prace->zadavatel_id">{$prace->zadavatel->nazev}</a></td>
+				</tr>
+			{/foreach}
+			</tbody>
+			<thead>
+				<th>Zakázka</th>
+				<th>Přijato</th>
+				<th>Termín</th>
+				<th>Zadal</th>
+			</thead>
+		</table>
+	</div>
+	<div name="obsah" style="display: none">
+		<table>
+			<tbody>
+			{foreach $storno as $prace}
+				<tr class="zaznam {if $iterator->isEven()}sudy{/if}">
+					<td class="id"><a n:href="Homepage:infoZak,$prace->cisloZakazky">{$prace->cisloZakazky}</a></td>
+					<td class="date"> {$prace->prijato|date:'j. n. Y'}</td>
+					<td class="date">{$prace->termin|date:'j. n. Y'}</td>
+					<td><a n:href="Homepage:infoZad,$prace->zadavatel_id">{$prace->zadavatel->nazev}</a></td>
+				</tr>
+			{/foreach}
+			</tbody>
+			<thead>
+				<th>Zakázka</th>
+				<th>Přijato</th>
+				<th>Termín</th>
+				<th>Zadal</th>
+			</thead>
+		</table>
+	</div>
+{/block}
+{block footer}
+{/block}
+
+{block style}	
+{/block}

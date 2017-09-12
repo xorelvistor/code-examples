@@ -1,0 +1,47 @@
+{block title}Přehled zadavatelů{/block}
+{block content}
+   	<table align="left" border="0" colspec="L C R" class="zahlavi" name="obsah">
+		<thead>
+			<tr>
+				<th>Název (zkratka)</th>
+				<th>Sídlo</th>
+				<th>Kontakt</th>
+				<th>Počet zakázek</th>
+				<th>Volby</th>
+			</tr>
+		</thead>
+	{foreach $zakaznici as $zakaznik}
+		{capture $var}{if $iterator->isEven()}true{/if}{/capture}
+		{foreach $zakaznik as $info}
+		<tr class="zaznam {if $var}sudy{/if}">
+			<td>
+				<a n:href="infoZad,$info->ic">{$info->nazev} ({$info->zkratka})</a>
+			</td>
+			<td>{$info->mesto}</td>
+			<td>{$info->kontakt}</td>
+			<td class="date"><a n:href="infoZad,$info->ic">{$pocet[$info->ic]}</a></td>
+			<td>
+			<a n:href="infoZad,$info->ic" title="Více informací o zadavateli">
+				<img class="icon" src="{$basePath}/image/info.png">
+			</a>
+				
+			{if $user->isLoggedIn()}
+				{if $user->identity->role == "administrator"}
+					<a n:href="edit:adminEditZad,$info->ic" title="Editovat zadavatele">
+						<img class="icon" src="{$basePath}/image/edit.png">
+					</a>	
+				{/if}
+			{/if}
+			</td>
+		</tr>
+		{/foreach}
+			
+	{/foreach}
+		
+	</table>
+{/block}
+{block footer}
+{/block}
+
+{block style}	
+{/block}

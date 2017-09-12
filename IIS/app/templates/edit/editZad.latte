@@ -1,0 +1,66 @@
+{block title}Editace uživatele{/block}
+
+
+
+{block content}
+{form editZadForm class=> 'form'}
+	<fieldset>
+		<legend>Informace o zadavateli</legend>
+		<table align="left" border="0"> 
+			<tr>
+		  		<td>{label nazev/}</td>
+				<td colspan="4">{input nazev} (maximálně 80 znaků)</td>
+			</tr>
+			<tr>
+				<td>{label zkratka/}</td>
+				<td>{input zkratka} (maximálně 5 znaků)</td>
+			</tr>
+			<tr>
+				<td>{label ic/}</td>
+				<td> {input ic}</td>
+				<td>{label dic/}</td>
+				<td>{input dic}	</td>
+		  	</tr>
+		  	
+		  	<tr>
+		  		<td>{label mesto/}</td>
+				<td>{input mesto}</td>
+				<td>{label ulice/}</td>
+				<td>{input ulice}</td>
+		  	</tr>
+		  	<tr>
+		  		<td>{label cp/}</td>
+				<td>{input cp}</td>
+				<td>{label psc/}</td>
+				<td>{input psc}</td>
+			</tr>
+		  	<tr>
+				<td>{label ucet/}</td>
+				<td>{input ucet} (číslo účtu/kód banky)</td>
+		  	</tr>
+		  	<tr>
+		  		<td>{label kontakt/}</td>
+				<td>{input kontakt}</td>
+		  	</tr>
+			<tr>
+				<td /><td />
+				<td>{label newPswd/}</td>
+				<td>{input newPswd}</td>
+		  	</tr>
+			<tr>
+				<td /><td />
+				<td>{label ctrlPswd/}</td>
+				<td>{input ctrlPswd}</td>
+		  	</tr>
+		</table>	
+	{input edit class=>'button'}
+	{/form}
+	</fieldset>
+	
+{/block}
+
+{block footer}
+{/block}
+
+{block style}	
+{/block}

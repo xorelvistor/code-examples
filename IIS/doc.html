@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=iso-8859-2;"/>
+    <meta charset="iso-8859-2">
+    <title>Projekt IIS</title>
+    <style type="text/css">
+    	table { border-collapse: collapse; }
+    	td, th { border: 1px solid black; padding: 0.3em 0.5em; text-align: left; }
+    	dt { font-weight: bold; margin-top: 0.5em; }
+    </style>
+</head>
+<body>
+
+<!-- Zkontrolujte prosím nastavení kódování v hlavičce dokumentu 
+     podle použitého editoru -->
+
+<h1>Firma1</h1> <!-- Nahradte názvem svého zadání -->
+
+<dl>
+	<dt>Autoři</dt>
+	<dd>Radim Jílek <!-- Nahraďte skutečným jménem a e-mailem autora a popisem činnosti -->
+	    <a href="mailto:xjilek14@stud.fit.vutbr.cz">xjilek14@stud.fit.vutbr.cz</a> -
+		správa uživatelů a uživatelské rozhraní
+	</dd>
+	<dd>Kamil Konečný <!-- Nahraďte skutečným jménem a e-mailem autora a popisem činnosti -->
+	    <a href="mailto:xkonec55@stud.fit.vutbr.cz">xkonec55@stud.fit.vutbr.cz</a> - 
+		databázový subsystém
+	</dd>
+	<dt>URL aplikace</dt>
+	<dd><a href="./www/">http://www.stud.fit.vutbr.cz/~xjilek14/projekty/IIS/</a></dd>
+</dl>
+
+<h2>Uživatelé systému pro testování</h2>
+<table>
+<tr><th>Login</th><th>Heslo</th><th>Role</th></tr>
+<tr><td>admin</td><td>admin</td><td>Administrátor</td></tr>
+<tr><td>user</td><td>user</td><td>Uživatel</td></tr>
+</table>
+
+<h2>Implementace</h2>
+<p>
+<dd><strong>app/model</strong> obsahuje php skripty pro práci s jednotlivými tabulkami databáze a skript pro ověření přístupu</dd> 
+<dd><strong>app/presenters/newPresenter.php</strong> php skript, který obsahuje funkce pro vytvářeni formulářů pro:
+<ul>
+<li>vytvoření zaměstnance</li>
+<li>vytvoření oddělení</li>
+<li>vytvoření zakázky</li>
+<li>vytvoření zadavatele</li>
+<li>...</li>
+<li>dále obsahuje funkce pro validaci formulářu a vložení dat do databáze</li>
+</ul>
+</dd>
+<dd><strong>app/presenters/homepagePresenter.php</strong> php skript, který obsahuje funkce pro zobrazení informací o:
+<ul>
+<li>změstnancích</li>
+<li>zakázkách</li>
+<li>odděleních</li>
+<li>zadavatelích</li>
+<li>...</li>
+</ul>
+</dd>
+</p>
+
+<h2>Instalace</h2>
+<ul>
+<li>Ke spuštění potřeba nainstalovat Nette Framework 2.0.7. Ke stažení <a href="http://nette.org/cs/download">zde</a>.</li>
+<li>Dále doplňky k nette. Ke stažení <a href="http://addons.nette.org/cs/datepicker">zde</a> a <a href="https://github.com/MartyIX/CheckboxList">zde</a>.</li>
+<li>Archiv s aplikací rozbalit a vložit do NetteFramework/ na serveru.</li>
+<li>Softwarové požadavky:
+<ul><li>PHP verze 5.3 a vyšší</li></ul>
+<ul><li>MySql verze 5.5 a vyšší</li></ul>
+</li>
+<li>Archviv obsahuje i sql script pro vytvoření databáze a naplnění testovacími daty - pro instalaci stačí zkopírovat obsah souboru v phpMyAdmin (záložka SQL)</li>
+</ul>
+
+<h2>Známé problémy</h2>
+
+</body>
+</html>

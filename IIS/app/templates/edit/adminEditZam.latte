@@ -1,0 +1,61 @@
+{block title}Editace zaměstnance{/block}
+
+
+
+{block content}
+
+	{form adminEditZamForm class => 'form'}
+	<fieldset>
+		<legend>Informace o zaměstnanci</legend>
+		<table>   
+			<tr>
+				<td>{label jmeno/}</td>
+				<td>{input jmeno}</td>
+				<td>{label prijmeni/}</td>
+				<td>{input prijmeni}</td>
+		  	</tr>
+		  	<tr>
+				<td>{label rc/}</td>
+				<td>{input rc}</td>
+			</tr>
+		  	<tr>
+				<td>{label tituly/}</td>
+				<td>{input tituly}</td>
+				<td>{label tel/}</td>
+				<td>{input tel}</td>
+		  	</tr>
+		  	<tr>
+				<td>{label uvazek/}</td>
+				<td>{input uvazek}</td>
+		  	</tr>
+		  	<tr>
+				<td>{label odd/}</td>
+				<td>{input odd}</td>
+		  	</tr>
+			<tr>
+				<td /><td />
+				<td>{label newPswd/}</td>
+				<td>{input newPswd}</td>
+		  	</tr>
+			<tr>
+				<td /><td />
+				<td>{label ctrlPswd/}</td>
+				<td>{input ctrlPswd}</td>
+		  	</tr>
+			<tr>
+				<td /><td />
+				<td>{label rules/}</td>
+				<td>{input rules}</td>
+		  	</tr>
+		</table>
+		{input edit class=> 'button'}
+	
+	{/form}
+	</fieldset> 	
+{/block}
+
+{block footer}
+{/block}
+
+{block style}	
+{/block}

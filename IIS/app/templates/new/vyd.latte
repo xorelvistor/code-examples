@@ -1,0 +1,37 @@
+{block title}Nový výdaj{/block}
+
+{block content}
+	{form vydajForm class => 'form'}
+	<fieldset>
+		<legend>Informace o novém výdaji</legend>
+		<table align="left" border="0" colspec="L C R">   
+			<tr>
+		  		<td>
+					{label vystaveno/} {input vystaveno}
+				</td>
+		  	</tr>
+		  	<tr>
+		  		<td>{label castka/} {input castka}</td>
+		  	</tr>
+		  	<tr>
+		  		<td>{label popis/}</td>
+		  	</tr>
+		  	<tr>
+		  		<td>{input popis}</td>
+		  	</tr>
+			<tr class="required">
+				<td colspan="2">pole označená (*) jsou povinná</td>
+			</tr>
+		</table>
+	{input create class=> 'button'}
+	</fieldset>
+	
+	{/form} 
+{/block}
+
+
+{block footer}
+{/block}
+
+{block style}	
+{/block}

@@ -1,0 +1,51 @@
+{block title}Informace o zaměstnanci{/block}
+{block content}
+	{foreach $info as $i}
+		<div class="detail">			
+			<div class="hlavicka"><span class="udaj">{$i->jmeno} {$i->prijmeni}</span><span class="id">ID: {$i->osobniCislo}</span></div>
+			<div class="info">
+				<div class="foto"></div>
+				<div class="udaj">Dosažené tituly: <span class="hodnota">{$i->tituly}</span></div>
+				<div class="udaj">Telefon: <span class="hodnota">{$i->telefon}</span></div>
+				<div class="udaj">Pracuje v oddělení:  
+					<a n:href="infoOdd,$i->oddeleni_id" class="hodnota">{$i->oddeleni->nazev}</a>
+				</div>
+			
+			</div>
+	{/foreach}
+		<div class="tabulka">	
+		<table align="left" border="0" colspec="L C R" class="zahlavi">
+			{dump $pocet}
+			{if $pocet}
+			<caption>Zaměstnanec řeší tyto zakázky</caption>
+			<tr>
+				<thead>
+					<th>Číslo zakázky</th>
+					<th>Pro</th>
+					<th>Termin</th>
+				</thead>
+
+			</tr>
+			{foreach $co as $z}
+				<tr class="zaznam {if $iterator->isEven()}sudy{/if}">
+					<td><a n:href="infoZak,$z->zakazka_id">{$z->zakazka_id}</a></td>
+					<td><a n:href="infoZad,$z->zakazka->zadavatel">{$z->zakazka->zadavatel->nazev}</a></td>
+					<td class="date">{$z->zakazka->termin|date:'j. n. Y'}</td>
+				</tr>
+			{/foreach}
+			{else}
+				<caption>Tento zaměstnanec neřeší žádnou zakázku.</caption>
+			{/if}	
+		</table>
+			<div>&nbsp;</div>
+		</div>
+		
+		</div>
+  
+
+{/block}
+{block footer}
+{/block}
+
+{block style}	
+{/block}

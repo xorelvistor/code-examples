@@ -1,0 +1,61 @@
+{block title}Informace o zákazníkovi{/block}
+{block content}
+
+	{foreach $info as $i}
+		<div class="detail">			
+			<div class="hlavicka">
+				<span class="udaj">{$i->nazev}</span>
+				<div class="id">
+					IČ: {$i->ic}<br>
+					DIČ: {$i->dic}
+				</div>
+			</div>
+			<span class="info">
+				<div class="foto">
+				<fieldset >
+					<legend>Adresa</legend>
+				<div class="udaj">Město: <span class="hodnota">{$i->mesto}</span></div><br>
+				<div class="udaj">Ulice: <span class="hodnota">{if $i->ulice == ""}{else}{$i->ulice}{/if}</span>
+				Č. P.: <span class="hodnota">{if $i->cp == 0}{else}{$i->cp}{/if}</span></div>
+				<div class="udaj">PSČ: <span class="hodnota">{if $i->psc == 0}{else}{$i->psc}{/if}</span></div>
+					</fieldset>
+				</div>
+				
+				<div class="udaj">Zkratka: <span class="hodnota">{$i->zkratka}</span></div><br>
+				<div class="udaj">Bankovní spojení: <span class="hodnota">{$i->ucet}</span></div><br>
+				<div class="udaj">Kontakt: <span class="hodnota">{$i->kontakt}</span></div>
+			</span>
+		
+	{/foreach}
+			<div class="tabulka">
+			<table align="left" border="0" colspec="L C R" class="zahlavi">
+				<caption>Historie zakázek</caption>
+   		<tr>
+			<thead>
+					<th>Číslo zakázky</th>
+					<th>Stav</th>
+					<th>Rozpocet</th>
+					<th>Termin</th>
+			</thead>
+   		</tr>
+   		
+	{foreach $co as $z}
+		<tr class="zaznam">
+			<td><a n:href="infoZak,$z->cisloZakazky">{$z->cisloZakazky}</a></td>
+	        <td>{$z->stav}</td>
+	        <td>{$z->rozpocet}</td>
+	        <td class="date">{$z->termin|date:'j. n. Y'}</td>
+	    </tr>
+	{/foreach}	
+	</table>
+			<div>&nbsp;</div>
+			</div>
+		</div>
+
+
+{/block}
+{block footer}
+{/block}
+{
+{block style}	
+{/block}

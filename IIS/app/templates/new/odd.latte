@@ -1,0 +1,37 @@
+{block title}Nové oddělení{/block}
+
+{block content}
+
+	{form oddeleniForm class => 'form'}
+	<fieldset>
+		<legend>Informace o novém oddělení</legend>
+		<table align="left" border="0" colspec="L C R">   
+			<tr>
+				<td>{label nazev/}</td>
+				<td>{input nazev} (maximálně 80 znaků)</td>
+		  	</tr>
+			<tr>
+				<td>{label kodOddeleni/}</td>
+				<td>{input kodOddeleni} (3 znaky)</td>
+			</tr>
+		  	<tr>
+				<td colspan="3">{label popis/} (maximálně 80 znaků)</td>
+		  	</tr>
+		  	<tr>
+		  		<td colspan="4">{input popis}</td>
+		  	</tr>
+			<tr class="required">
+				<td colspan="2">pole označená (*) jsou povinná</td>
+			</tr>
+		</table>
+
+	{input create class=> 'button'}
+	{/form}
+	</fieldset> 
+{/block}
+
+{block footer}
+{/block}
+
+{block style}	
+{/block}

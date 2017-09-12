@@ -1,0 +1,121 @@
+{block title}Informace o zakázce{/block}
+{block content}
+	{foreach $info as $i}
+		<div class="detail">
+			<div class="hlavicka">
+				Zakázku zadal: <span class="udaj"><a n:href="infoZad,$i->zadavatel_id">{$i->zadavatel->nazev}</a></span>
+				<span class="udaj id">Číslo zakázky: {$i->cisloZakazky}</span>
+			</div>
+			<div class="info">
+				<div class="udaj">
+					Stav zakázky:
+					{form priradForm}
+						{if $user->isLoggedIn()}
+							{input stav} 
+							{if $user->identity->role == "administrator"}
+								{if $i->stav != "storno" && $i->stav != "hotovo"}
+									{input zmenit class => 'button'}
+								{/if}	
+							{/if}
+						{/if}
+					{/form}
+				</div>
+				<span class="udaj">
+					Datum přijetí: 
+					<span class="hodnota">{$i->prijato|date:'j. n. Y'}</span>
+				</span>
+				<span class="udaj">
+					Termín: <span class="hodnota">{$i->termin|date:'j. n. Y'}</span>
+				</span>
+		
+				
+				<div class="udaj">
+					Rozpočet: <span class="hodnota">{$i->rozpocet} Kč</span>
+				</div>
+				
+					{form priradForm}
+						{if $user->isLoggedIn()}
+							{if $user->identity->role == "administrator"}
+							<span class="foto">
+								<b>Přiřadit zakázce tyto zaměstnance:</b><br>
+								{input option}
+								{if $i->stav != "storno" && $i->stav != "hotovo"}
+									{input priradit class => 'button'}
+								{/if}
+							</span>
+							{/if}
+						{/if}
+					{/form}
+				
+				<div class="udaj">
+					Záloha: <span class="hodnota">{$i->zaloha} Kč</span>
+				</div>
+				<div class="udaj">Popis:
+				<div class="hodnota" style="width: {$i->popis|length}em">{$i->popis}</div>
+								</div>
+
+			{/foreach}
+				
+				<span>
+					<div class="udaj">Zakázku řeší:</div>
+					<ul>
+						{foreach $kdo as $k}
+							<a n:href="infoZam,$k->zamestnanec->osobniCislo" class="zaznam">
+								{$k->zamestnanec->jmeno} {$k->zamestnanec->prijmeni}</a>{sep},{/sep}
+						{/foreach}
+					</ul>
+				</span>
+			</div>
+			{foreach $kolik as $k}
+			{if $iterator->first}
+			<div class="tabulka">
+				<table align="left" border="0" colspec="L C R" class="zahlavi">
+					<caption>Přehled výdajů na zakázku.</caption> 
+					<thead>
+						<th>Číslo dokladu</th>
+						<th>Datum vystavení</th>
+						<th>Částka</th>
+						<th>Popis</th>
+					</thead>
+			{/if}	
+					<tr class="zaznam {if $iterator->isEven()}sudy{/if}">
+						<td>{$k->cisloDokladu}</a></td>
+						<td class="date"> {$k->datum|date:'j. n. Y'}</td>
+						<td>{$k->castka}</td>
+						<td>{$k->popis}</td>
+					</tr>
+				{if $iterator->last}
+				<tr class="udaj">
+					<td colspan="2"><b>CELKEM</b></td>
+					<td>
+					{foreach $info as $i}
+						{if  $suma < $i->rozpocet}
+						<span class="suma_ok">
+						{else}
+							<span class="suma_bad" title="Rozpočet přečerpán o {$suma - $i->rozpocet} Kč.">
+						{/if}
+					{/foreach}	
+							<b>{$suma}</b></td>
+				</tr>
+				</table>
+				<div>&nbsp;</div>
+			</div>{/if}
+			{/foreach}
+		</div>
+{/block}
+{block footer}
+	<div id="footer">
+		{foreach $info as $i}		
+		{if $i->stav != "storno" && $i->stav != "hotovo" && $suma < $i->rozpocet}
+			{foreach $kdo as $pracuje}
+				{if $pracuje->zamestnanec->osobniCislo == $user->identity->login}
+					<a n:href="new:vyd,$i ->cisloZakazky"><div class="button">Přidat výdaj</div></a>
+				{/if}
+			{/foreach}
+		{/if}
+		{/foreach}
+	</div>
+{/block}
+
+{block style}	
+{/block}

@@ -1,0 +1,20 @@
+{
+    "name": "nette/quick-start",
+	"description": "Nette Quick Start tutorial",
+	"keywords": ["nette", "tutorial", "quickstart"],
+	"homepage": "http://doc.nette.org/quickstart",
+	"license": ["BSD-3-Clause", "GPL-2.0", "GPL-3.0"],
+    "require": {
+		"php": ">=5.3.0",
+        "nette/nette": ">=2.0.5"
+    },
+	"config": {
+		"vendor-dir": "libs"
+	},
+    "authors": [
+        {
+			"name": "Nette Community",
+			"homepage": "http://nette.org/contributors"
+        }
+    ]
+}

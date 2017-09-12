@@ -1,0 +1,47 @@
+{block title}Nová zakázka{/block}
+
+{block content}
+
+	{form zakazkaForm class => 'form'}
+	<fieldset>
+			<legend>Informace o nové zakázce</legend>
+		<table>   
+			<tr>
+				<td>{label prijato/}</td>
+				<td>{input prijato}</td>
+				<td>{label termin/}</td>
+				<td>{input termin}</td>
+		  	</tr>
+		  	<tr>
+				<td>{label rozpocet/}</td>
+				<td>{input rozpocet}</td>
+				<td>{label zaloha/}</td>
+				<td>{input zaloha}</td>
+		  	</tr>
+		  	<tr>
+				<td>{label zadal/}</td>
+				<td>{input zadal}</td>
+				<td /><td />
+				
+		  	</tr>
+		  	<tr>
+				<td>{label popis/}</td>
+		  	</tr>
+		  	<tr>
+		  		<td colspan="4">{input popis}</td>
+		  	</tr>
+			<tr class="required">
+				<td colspan="2">pole označená (*) jsou povinná</td>
+			</tr>
+		</table>
+				
+	{input create class=> 'button'}
+	{/form} 
+	</fieldset>
+{/block}
+
+{block footer}
+{/block}
+
+{block style}	
+{/block}

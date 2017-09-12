@@ -1,0 +1,26 @@
+{block title}Přehled oddělení{/block}
+{block content}
+
+{foreach $oddeleni as $o }
+<a n:href="infoOdd,$o->kodOddeleni">
+<span class="oddeleni_buble">
+	<div class="info">
+		<div class="nazev">
+			<span>
+				{$o->nazev}
+				({$o->kodOddeleni}) 
+			</span>
+		</div>
+		{$o->zamereni}
+	</div>
+</span>
+</a>
+{/foreach}
+	       
+	
+{/block}
+{block footer}
+{/block}
+
+{block style}	
+{/block}

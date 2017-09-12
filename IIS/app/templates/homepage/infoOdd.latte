@@ -1,0 +1,59 @@
+{block title}Informace o oddělení{/block}
+{block content}
+<div class="detail">
+	
+	{foreach $info as $i}
+	<div class="hlavicka">
+		<span class="udaj">{$i->nazev}</span>
+		<div class="meta">
+			{if $user->isLoggedIn()}
+				{if $user->identity->role == "administrator"}
+					<a n:href="edit:AdminEditOdd,$i->kodOddeleni" title="Editovat oddělení" >
+						<img src="{$basePath}/image/edit.png" class="icon">
+					</a>
+					<a n:href="deleteOdd!,$i->kodOddeleni" title="Smazat oddělení" >
+						<img src="{$basePath}/image/delete.gif" class="icon">
+					</a>
+				{/if}
+			{/if}
+		</div>
+	</div>
+		<div class="info">			
+			<div class="udaj">Zkratka: <span class="hodnota">{$i->kodOddeleni}</span></div>
+		  	<div class="udaj">Zaměření: <span class="hodnota">{$i->zamereni}</span></div>
+			{if $i->kodOddeleni != "nez"} 
+				<div class="udaj">Vedoucí:
+				{foreach $vedouci as $v}
+				 <a n:href="infoZam,$v->zamestnanec->osobniCislo">
+					<span class="hodnota">{$v->zamestnanec->jmeno} {$v->zamestnanec->prijmeni}</span>
+				</a>
+				{/foreach}
+				</div>
+			{/if}
+			{if $user->isLoggedIn()}
+				{if $user->identity->role == "administrator"}
+					{if $i->kodOddeleni != "nez"} 
+						{form zmenVedForm}
+							<span class="udaj">{input zam}</span>{input change class => 'button'}
+						{/form}	
+					{/if}
+			
+				{/if}
+			{/if}
+	<div class="udaj">Počet zaměstnanců:
+		<span class="hodnota">
+			<a n:href="homepage:lide" title="Zobrazit seznam zaměstnanců">{$pocet}</a>
+		</span>
+	</div>
+	</div>
+	{/foreach}
+
+
+
+{/block}
+
+{block footer}
+{/block}
+
+{block style}	
+{/block}
